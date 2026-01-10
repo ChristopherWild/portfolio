@@ -102,7 +102,7 @@ body {
 
 /* PAGE TURN */
 .page.flipped {
-  transform: rotateY(-175deg) translateZ(1px);
+  transform: rotateY(180deg) translateZ(1px);
 }
 
 .cover { text-align: center; }
