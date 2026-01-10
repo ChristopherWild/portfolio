@@ -3,10 +3,13 @@ const totalPages = 8;
 const sound = new Audio("audio/page.mp3");
 
 function nextPage() {
-  if (currentPage <= totalPages) {
+  if (currentPage < totalPages) {
     sound.currentTime = 0;
     sound.play();
-    document.getElementById("page" + currentPage).classList.add("flipped");
+
+    const page = document.getElementById("page" + currentPage);
+    page.classList.add("flipped");
+
     currentPage++;
   }
 }
@@ -14,8 +17,12 @@ function nextPage() {
 function prevPage() {
   if (currentPage > 1) {
     currentPage--;
+
     sound.currentTime = 0;
     sound.play();
-    document.getElementById("page" + currentPage).classList.remove("flipped");
+
+    const page = document.getElementById("page" + currentPage);
+    page.classList.remove("flipped");
   }
 }
+
