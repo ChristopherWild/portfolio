@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background: #edeae3;
+  background: #e7e4dc;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,69 +10,86 @@ body {
   font-family: "Georgia", serif;
 }
 
+/* BOOK BODY */
 .book {
   width: 900px;
   height: 580px;
   position: relative;
-  perspective: 3000px;
-  background: linear-gradient(to right, #cfc8bb 0%, #f8f6f1 6%, #f8f6f1 100%);
-  border-radius: 8px;
-  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+  perspective: 3500px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #b8b0a2, #d8d2c6);
+  box-shadow: 0 35px 70px rgba(0,0,0,.4);
 }
 
+/* HARD COVER TEXTURE */
 .book::before {
   content: "";
   position: absolute;
-  left: 0;
-  width: 60px;
-  height: 100%;
-  background: linear-gradient(to right, #bcb4a7, #e6e1d8);
-  border-radius: 8px 0 0 8px;
+  inset: 0;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(255,255,255,.05) 0px,
+      rgba(255,255,255,.05) 2px,
+      rgba(0,0,0,.04) 4px,
+      rgba(0,0,0,.04) 6px);
+  pointer-events: none;
 }
 
+/* SPINE */
+.book::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 70px;
+  height: 100%;
+  background: linear-gradient(to right, #9f9789, #dcd6cb);
+  border-radius: 10px 0 0 10px;
+}
+
+/* PAGE */
 .page {
   position: absolute;
-  width: 840px;
+  width: 820px;
   height: 520px;
   top: 30px;
-  left: 60px;
-  background: #fbfaf7;
+  left: 70px;
+  background: radial-gradient(circle at left, #ffffff, #f4f1ec);
   padding: 60px;
   border-radius: 4px;
   transform-origin: right;
-  transform: rotateY(0deg);
-  transition: transform 1.1s ease-in-out;
-  box-shadow: inset 0 0 20px rgba(0,0,0,.05), 0 10px 30px rgba(0,0,0,.25);
+  transition: transform 1.15s ease-in-out;
+  box-shadow:
+    inset 0 0 18px rgba(0,0,0,.06),
+    0 12px 35px rgba(0,0,0,.3);
 }
 
+/* SUBTLE PAGE EDGE CURVE */
+.page::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 18px;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0,0,0,.12), transparent);
+  border-radius: 0 4px 4px 0;
+}
+
+/* PAGE TURN */
 .page.flipped {
   transform: rotateY(-180deg);
 }
 
-.cover {
-  text-align: center;
-}
+.cover { text-align: center; }
 
-.cover h1 {
-  margin-top: 120px;
-  font-size: 52px;
-}
+.cover h1 { margin-top: 120px; font-size: 52px; }
 
 h1, h2, h3 { color: #2f3e3a; }
 p { color: #4b5b56; line-height: 1.65; }
 
-.nav {
-  position: absolute;
-  bottom: 40px;
-  right: 60px;
-}
-
-.page-number {
-  position: absolute;
-  bottom: 40px;
-  left: 60px;
-  color: #888;
-}
+.nav { position: absolute; bottom: 40px; right: 60px; }
+.page-number { position: absolute; bottom: 40px; left: 60px; color: #777; }
 
 button {
   background: #c7b8a6;
