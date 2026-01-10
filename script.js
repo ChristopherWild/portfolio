@@ -26,3 +26,23 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") prevPage();
 });
 
+function updateThickness() {
+  const ratio = (currentPage - 1) / (totalPages - 1);
+  const thickness = 1 - ratio * 0.75;
+  document.querySelector(".book").style.setProperty("--thickness", thickness);
+}
+
+const originalNext = nextPage;
+const originalPrev = prevPage;
+
+nextPage = function() {
+  originalNext();
+  updateThickness();
+};
+
+prevPage = function() {
+  originalPrev();
+  updateThickness();
+};
+
+updateThickness();
