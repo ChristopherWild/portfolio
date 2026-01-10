@@ -157,3 +157,15 @@ button {
 }
 
 button:hover { background: #b5a592; }
+
+.page {
+  backface-visibility: hidden;
+}
+
+.page.flipped {
+  z-index: 100;
+}
+
+.page:not(.flipped) {
+  z-index: 200;
+}
