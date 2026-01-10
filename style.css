@@ -43,11 +43,15 @@ body {
 .book::after {
   content: "";
   position: absolute;
-  left: 0;
-  width: 70px;
-  height: 100%;
-  background: linear-gradient(to right, #9f9789, #dcd6cb);
-  border-radius: 10px 0 0 10px;
+  right: 0;
+  top: 12px;
+  width: 22px;
+  height: calc(100% - 24px);
+  background: linear-gradient(to right, #d4cec4, #f7f4ee);
+  border-radius: 0 10px 10px 0;
+  transform-origin: left;
+  transition: transform 0.8s ease;
+  transform: scaleX(var(--thickness));
 }
 
 /* PAGE */
