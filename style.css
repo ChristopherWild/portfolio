@@ -78,6 +78,16 @@ body {
 .page:nth-child(7) { z-index: 2; }
 .page:nth-child(8) { z-index: 1; }
 
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at right, #f6f3ed, #e9e5dc);
+  border-radius: 4px;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
 /* SUBTLE PAGE EDGE CURVE */
 .page::after {
   content: "";
@@ -92,7 +102,7 @@ body {
 
 /* PAGE TURN */
 .page.flipped {
-  transform: rotateY(-180deg);
+  transform: rotateY(-175deg) translateZ(1px);
 }
 
 .cover { text-align: center; }
