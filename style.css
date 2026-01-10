@@ -57,13 +57,16 @@ body {
   background: radial-gradient(circle at left, #ffffff, #f4f1ec);
   padding: 60px;
   border-radius: 4px;
-  transform-origin: right;
-  transition: transform 1.15s ease-in-out;
+
+  transform-origin: right center;
+  transform-style: preserve-3d;
+
+  transition: transform 1.1s ease-in-out;
+
   box-shadow:
     inset 0 0 18px rgba(0,0,0,.06),
     0 12px 35px rgba(0,0,0,.3);
   z-index: 1;
-  
 }
 
 .page:nth-child(1) { z-index: 8; }
