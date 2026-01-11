@@ -1,38 +1,24 @@
-let page = 0;
-const sheets = [...document.querySelectorAll('.sheet')];
-const sound = new Audio("audio/page.mp3");
-
-/* Force initial stacking */
-sheets.forEach((sheet, i) => {
-  sheet.style.zIndex = sheets.length - i;
-});
+const pages = document.querySelectorAll(".page");
+let current = 0;
 
 function update() {
-  sheets.forEach((sheet, i) => {
-    if (i < page) {
-      sheet.classList.add("flipped");
-      sheet.style.zIndex = i;
-    } else {
-      sheet.classList.remove("flipped");
-      sheet.style.zIndex = sheets.length - i;
-    }
+  pages.forEach((p, i) => {
+    p.style.zIndex = pages.length - i;
+    if (i < current) p.classList.add("flipped");
+    else p.classList.remove("flipped");
   });
 }
 
 function next() {
-  if (page < sheets.length) {
-    sound.currentTime = 0;
-    sound.play();
-    page++;
+  if (current < pages.length) {
+    current++;
     update();
   }
 }
 
 function prev() {
-  if (page > 0) {
-    sound.currentTime = 0;
-    sound.play();
-    page--;
+  if (current > 0) {
+    current--;
     update();
   }
 }
@@ -42,6 +28,5 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") prev();
 });
 
-/* Critical: lock initial state after load */
-window.onload = () => update();
+update();
 
