@@ -1,12 +1,21 @@
 let page = 0;
-const sheets = document.querySelectorAll('.sheet');
+const sheets = [...document.querySelectorAll('.sheet')];
 const sound = new Audio("audio/page.mp3");
 
+/* Force initial stacking */
+sheets.forEach((sheet, i) => {
+  sheet.style.zIndex = sheets.length - i;
+});
+
 function update() {
-  sheets.forEach((s, i) => {
-    s.style.zIndex = sheets.length - i;
-    if (i < page) s.classList.add("flipped");
-    else s.classList.remove("flipped");
+  sheets.forEach((sheet, i) => {
+    if (i < page) {
+      sheet.classList.add("flipped");
+      sheet.style.zIndex = i;
+    } else {
+      sheet.classList.remove("flipped");
+      sheet.style.zIndex = sheets.length - i;
+    }
   });
 }
 
@@ -33,5 +42,6 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") prev();
 });
 
-update();
+/* Critical: lock initial state after load */
+window.onload = () => update();
 
