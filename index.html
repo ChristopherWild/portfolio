@@ -7,89 +7,35 @@
 </head>
 <body>
 
-<div class="book">
+<div class="scene">
+  <div class="book" id="book">
 
-<!-- Cover -->
-<div class="page active cover" id="page1">
-  <h1>Academic Portfolio</h1>
-  <h3>Miles mayer</h3>
-  <p>Application for Grade 9 Challenger Program</p>
-  <p>Kleos · 25/26</p>
-  <div class="page-number">1</div>
-  <button onclick="nextPage()">Open ➜</button>
-</div>
+    <div class="sheet" data-page="1">
+      <div class="front cover">
+        <h1>Academic Portfolio</h1>
+        <p>[Student Name]</p>
+        <p>Grade 9 Challenger Program</p>
+      </div>
+      <div class="back"></div>
+    </div>
 
-<div class="page" id="page2">
-  <h2>Personal Academic Profile</h2>
-  <p>Write academic introduction here...</p>
-  <div class="page-number">2</div>
-  <div class="nav">
-    <button onclick="prevPage()">⬅ Back</button>
-    <button onclick="nextPage()">Next ➜</button>
+    <div class="sheet" data-page="2"><div class="front"><h2>Personal Profile</h2></div><div class="back"></div></div>
+    <div class="sheet" data-page="3"><div class="front"><h2>Achievements</h2></div><div class="back"></div></div>
+    <div class="sheet" data-page="4"><div class="front"><h2>Sample Work</h2></div><div class="back"></div></div>
+    <div class="sheet" data-page="5"><div class="front"><h2>Enrichment</h2></div><div class="back"></div></div>
+    <div class="sheet" data-page="6"><div class="front"><h2>Leadership</h2></div><div class="back"></div></div>
+    <div class="sheet" data-page="7"><div class="front"><h2>Feedback</h2></div><div class="back"></div></div>
+    <div class="sheet" data-page="8"><div class="front"><h2>Reflection</h2></div><div class="back"></div></div>
+
   </div>
 </div>
 
-<div class="page" id="page3">
-  <h2>Academic Achievements</h2>
-  <p>Report cards, awards, test results...</p>
-  <div class="page-number">3</div>
-  <div class="nav">
-    <button onclick="prevPage()">⬅ Back</button>
-    <button onclick="nextPage()">Next ➜</button>
-  </div>
-</div>
-
-<div class="page" id="page4">
-  <h2>Sample Academic Work</h2>
-  <p>Selected assignments and projects...</p>
-  <div class="page-number">4</div>
-  <div class="nav">
-    <button onclick="prevPage()">⬅ Back</button>
-    <button onclick="nextPage()">Next ➜</button>
-  </div>
-</div>
-
-<div class="page" id="page5">
-  <h2>Enrichment & Independent Learning</h2>
-  <p>Clubs, competitions, self-study...</p>
-  <div class="page-number">5</div>
-  <div class="nav">
-    <button onclick="prevPage()">⬅ Back</button>
-    <button onclick="nextPage()">Next ➜</button>
-  </div>
-</div>
-
-<div class="page" id="page6">
-  <h2>Leadership & Community</h2>
-  <p>Leadership roles, service, teamwork...</p>
-  <div class="page-number">6</div>
-  <div class="nav">
-    <button onclick="prevPage()">⬅ Back</button>
-    <button onclick="nextPage()">Next ➜</button>
-  </div>
-</div>
-
-<div class="page" id="page7">
-  <h2>Teacher & Mentor Feedback</h2>
-  <p>Selected comments and references...</p>
-  <div class="page-number">7</div>
-  <div class="nav">
-    <button onclick="prevPage()">⬅ Back</button>
-    <button onclick="nextPage()">Next ➜</button>
-  </div>
-</div>
-
-<div class="page" id="page8">
-  <h2>Reflection & Future Goals</h2>
-  <p>Final reflection and academic direction...</p>
-  <div class="page-number">8</div>
-  <div class="nav">
-    <button onclick="prevPage()">⬅ Back</button>
-  </div>
-</div>
-
+<div class="controls">
+  <button onclick="prev()">◀</button>
+  <button onclick="next()">▶</button>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
