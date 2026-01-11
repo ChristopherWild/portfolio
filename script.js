@@ -1,48 +1,37 @@
-const totalPages = 8;
-let currentPage = 1;
+let page = 0;
+const sheets = document.querySelectorAll('.sheet');
 const sound = new Audio("audio/page.mp3");
 
-function nextPage() {
-  if (currentPage < totalPages) {
+function update() {
+  sheets.forEach((s, i) => {
+    s.style.zIndex = sheets.length - i;
+    if (i < page) s.classList.add("flipped");
+    else s.classList.remove("flipped");
+  });
+}
+
+function next() {
+  if (page < sheets.length) {
     sound.currentTime = 0;
     sound.play();
-    document.getElementById("page" + currentPage).classList.add("flipped");
-    currentPage++;
+    page++;
+    update();
   }
 }
 
-function prevPage() {
-  if (currentPage > 1) {
-    currentPage--;
+function prev() {
+  if (page > 0) {
     sound.currentTime = 0;
     sound.play();
-    document.getElementById("page" + currentPage).classList.remove("flipped");
+    page--;
+    update();
   }
 }
 
-/* Keyboard support */
 document.addEventListener("keydown", e => {
-  if (e.key === "ArrowRight") nextPage();
-  if (e.key === "ArrowLeft") prevPage();
+  if (e.key === "ArrowRight") next();
+  if (e.key === "ArrowLeft") prev();
 });
 
-function updateThickness() {
-  const ratio = (currentPage - 1) / (totalPages - 1);
-  const thickness = 1 - ratio * 0.75;
-  document.querySelector(".book").style.setProperty("--thickness", thickness);
-}
+update();
 
-const originalNext = nextPage;
-const originalPrev = prevPage;
-
-nextPage = function() {
-  originalNext();
-  updateThickness();
-};
-
-prevPage = function() {
-  originalPrev();
-  updateThickness();
-};
-
-updateThickness();
