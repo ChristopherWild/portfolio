@@ -4,60 +4,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   font-family: Georgia, serif;
 }
 
 .scene {
-  width: 1000px;
-  height: 600px;
-  perspective: 2400px;
+  width: 900px;
+  height: 550px;
+  perspective: 2000px;
+  margin-top: 40px;
 }
 
 .book {
-  width: 100%;
-  height: 100%;
   position: relative;
-  transform-style: preserve-3d;
-}
-
-.sheet {
-  width: 480px;
-  height: 560px;
-  position: absolute;
-  top: 20px;
-  left: 500px;
-  transform-origin: left center;
-  transform-style: preserve-3d;
-  transition: transform 1.1s cubic-bezier(.4,0,.2,1);
-}
-
-.sheet .front, .sheet .back {
-  position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.page {
+  position: absolute;
+  width: 450px;
+  height: 100%;
+  right: 0;
   background: #fbfaf7;
-  padding: 50px;
-  border-radius: 6px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-  backface-visibility: hidden;
+  padding: 40px;
+  box-shadow: 0 15px 30px rgba(0,0,0,.25);
+  transform-origin: left center;
+  transition: transform 1s ease;
 }
 
-.sheet .back {
-  transform: rotateY(180deg);
+.page.cover {
+  font-size: 32px;
+  text-align: center;
 }
 
-.sheet.flipped {
-  transform: rotateY(160deg) translateZ(120px);
-}
-
-.controls {
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  background: #c7b8a6;
-  border: none;
-  border-radius: 5px;
+.page.flipped {
+  transform: rotateY(-180deg);
 }
